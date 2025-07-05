@@ -8,7 +8,8 @@ import {
   FaEyeSlash,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { loginUser, registerUser } from "@/Services/login";
+import axios from "axios";
+import { registerUser } from "@/Services/login";
 import { Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -29,7 +30,7 @@ function AuthPage() {
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email.value)) {
-      setError("Please enter a valid email address.");
+      setSignInError("Please enter a valid email address.");
       return;
     }
 
@@ -41,15 +42,23 @@ function AuthPage() {
 
     try {
       console.log("Login Started in Frontend");
-      const user = await loginUser(data);
-      console.log("Login Completed");
 
-      if (user?.statusCode === 200) {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_BACKEND}/api/auth/login`,
+        data
+      );
+
+      const token = response.data?.token;
+      if (token) {
+        localStorage.setItem("token", token);
         navigate("/");
+      } else {
+        throw new Error("Login failed, no token received.");
       }
-      console.log(user);
+
+      console.log("Login Completed");
     } catch (error) {
-      setSignInError(error.message);
+      setSignInError(error.response?.data?.message || error.message);
       console.log("Login Failed");
     } finally {
       setLoading(false);
@@ -61,10 +70,9 @@ function AuthPage() {
     event.preventDefault();
     const { fullname, email, password } = event.target.elements;
 
-    // Simple email validation
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email.value)) {
-      setError("Please enter a valid email address.");
+      setSignUpError("Please enter a valid email address.");
       return;
     }
 
@@ -78,7 +86,7 @@ function AuthPage() {
     try {
       const response = await registerUser(data);
       if (response?.statusCode === 201) {
-        console.log("User Registration Started");
+        console.log("User Registration Successful");
         handleSignInSubmit(event);
       }
     } catch (error) {
@@ -119,8 +127,6 @@ function AuthPage() {
         </div>
 
         <div className="relative overflow-hidden h-80">
-          {" "}
-          {/* Added height to ensure content is visible */}
           <motion.div
             className={`absolute inset-0 transition-transform duration-500 ${
               isSignUp ? "translate-x-0" : "translate-x-full"
@@ -189,6 +195,7 @@ function AuthPage() {
               )}
             </form>
           </motion.div>
+
           <motion.div
             className={`absolute inset-0 transition-transform duration-500 ${
               isSignUp ? "-translate-x-full" : "translate-x-0"
@@ -278,3 +285,4 @@ function AuthPage() {
 }
 
 export default AuthPage;
+
