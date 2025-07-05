@@ -44,11 +44,13 @@ function AuthPage() {
       console.log("Login Started in Frontend");
 
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_BACKEND}/api/auth/login`,
-        data
+        `${process.env.NEXT_PUBLIC_BACKEND}/api/users/login`,
+        data,
+        { withCredentials: true }
       );
 
       const token = response.data?.token;
+
       if (token) {
         localStorage.setItem("token", token);
         navigate("/");
@@ -285,4 +287,3 @@ function AuthPage() {
 }
 
 export default AuthPage;
-
