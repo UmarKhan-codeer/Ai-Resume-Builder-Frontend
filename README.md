@@ -1,3 +1,4 @@
+
 # 🧠 Recurify – AI Resume Builder
 
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
@@ -13,16 +14,16 @@ With a modern UI, AI-powered suggestions, and secure user authentication, Recuri
 
 ## 📌 Index
 
-- [Tech Stack](#tech-stack)
-- [Live Demo](#live-demo)
-- [Screenshots](#screenshots)
-- [Installation](#installation)
-  - [Backend Setup](#backend-setup)
-  - [Frontend Setup](#frontend-setup)
-- [Features](#features)
-- [Contribution](#contribution)
-- [Developer](#developer)
-- [License](#license)
+- [Tech Stack](#-tech-stack)
+- [Live Demo](#-live-demo)
+- [Screenshots](#-screenshots)
+- [Installation](#️-installation)
+  - [Backend Setup](#-backend-setup)
+  - [Frontend Setup](#-frontend-setup)
+- [Features](#-features)
+- [Contribution](#-contribution)
+- [Developer](#-developer)
+- [License](#-license)
 
 ---
 
@@ -49,7 +50,7 @@ With a modern UI, AI-powered suggestions, and secure user authentication, Recuri
 ![Home Page](./screenshots/Home.PNG)
 ![Auth Page](./screenshots/auth-page.png)
 ![Dashboard](./screenshots/dashboard.png)
-![Template Customization](./Screenshots/ThemeCust.png)  
+![Template Customization](./screenshots/ThemeCust.png)
 ![Resume Preview](./screenshots/resume-preview.PNG)
 ![AI Suggestions](./screenshots/AISuggestions.png)
 
@@ -64,81 +65,97 @@ To run Recurify locally, follow these steps:
 ```bash
 git clone https://github.com/UmarKhan-codeer/Ai-Resume-Builder-Frontend.git
 git clone https://github.com/UmarKhan-codeer/Ai-Resume-Builder-Backend.git
+```
 
-🔧 Backend Setup
-Navigate to backend:
+---
 
-bash
+## 🔧 Backend Setup
+
+```bash
 cd Ai-Resume-Builder-Backend
 npm install
-Create .env in root:
+```
 
-env
+Create a `.env` file in the root:
+
+```env
 PORT=5000
 MONGODB_URI=your-mongodb-uri
 JWT_SECRET_KEY=your-secret-key
 JWT_SECRET_EXPIRES_IN=1d
 NODE_ENV=Dev
 ALLOWED_SITE=http://localhost:3000
+```
+
 Run backend:
-bash
+
+```bash
 npm run dev
+```
 
-💻 Frontend Setup
-Navigate to frontend:
+---
 
-bash
+## 💻 Frontend Setup
+
+```bash
 cd ../Ai-Resume-Builder-Frontend
 npm install
-Create .env.local in root:
+```
 
-env
+Create a `.env.local` file in the root:
+
+```env
 NEXT_PUBLIC_BACKEND=http://localhost:5000
+```
+
 Run frontend:
 
-bash
+```bash
 npm run dev
+```
 
-✨ Features
-🔒 Secure Authentication
-JWT & cookie-based login and registration
+---
 
-🧠 AI Suggestions
-Smart resume content enhancement (powered by Gemini)
+## ✨ Features
 
-📄 PDF Export
-Download your resume instantly as PDF
+- 🔒 **Secure Authentication:** JWT & cookie-based login and registration
+- 🧠 **AI Suggestions:** Smart resume content enhancement (powered by Gemini)
+- 📄 **PDF Export:** Download your resume instantly as PDF
+- 🎨 **Beautiful & Responsive UI:** Modern design with Tailwind CSS, works on all devices
+- 🏠 **Dashboard:** Manage and preview your resumes
 
-🎨 Beautiful & Responsive UI
-Modern design with Tailwind CSS, works on all devices
+---
 
-🏠 Dashboard
-Manage and preview your resumes
+## 🤝 Contribution
 
-🤝 Contribution
 Contributions are welcome! Follow these steps:
 
-Fork the repo
-
-Create your branch:
-
-bash
+1. **Fork the repo**
+2. **Create your branch:**
+```bash
 git checkout -b feature-name
-Make your changes & commit:
-
-bash
+```
+3. **Make changes & commit:**
+```bash
 git add .
 git commit -m "Describe your changes"
-Push to your branch:
-
-bash
+```
+4. **Push to your branch:**
+```bash
 git push origin feature-name
-Open a Pull Request
+```
+5. **Open a Pull Request** on GitHub
 
-👨‍💻 Developer
-@Umar Khan
+---
 
-⚡ License
-Open source under the MIT License.
+## 👨‍💻 Developer
 
-🚀 Recurify – Build your next job-winning resume with AI.
+- [@Umar Khan](https://github.com/UmarKhan-codeer)
+
+---
+
+## ⚡ License
+
+Open source under the **MIT License**.
+
+🚀 **Recurify – Build your next job-winning resume with AI.**
