@@ -49,7 +49,7 @@ With a modern UI, AI-powered suggestions, and secure user authentication, Recuri
 
 ![Home Page](./screenshots/Home.PNG)
 ![Auth Page](./screenshots/auth-page.png)
-![Dashboard](./screenshots/dashboard.png)
+![Dashboard](./screenshots/Dashboard.png)
 ![Template Customization](./screenshots/ThemeCust.png)
 ![Resume Preview](./screenshots/resume-preview.PNG)
 ![AI Suggestions](./screenshots/AISuggestions.png)
